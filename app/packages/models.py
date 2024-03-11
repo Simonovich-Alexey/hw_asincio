@@ -26,19 +26,20 @@ class Person(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     birth_year: Mapped[str] = mapped_column(String(50), nullable=True)
     eye_color: Mapped[str] = mapped_column(String(50), nullable=True)
-    films: Mapped[list] = mapped_column(JSON, nullable=True)
+    films: Mapped[str] = mapped_column(String(), nullable=True)
     gender: Mapped[str] = mapped_column(String(50), nullable=True)
     hair_color: Mapped[str] = mapped_column(String(50), nullable=True)
     height: Mapped[str] = mapped_column(String(50), nullable=True)
-    homeworld: Mapped[str] = mapped_column(String(50), nullable=True)
+    homeworld: Mapped[str] = mapped_column(String(100), nullable=True)
     mass: Mapped[str] = mapped_column(String(50), nullable=True)
     name: Mapped[str] = mapped_column(String(50), nullable=True)
     skin_color: Mapped[str] = mapped_column(String(50), nullable=True)
-    species: Mapped[list] = mapped_column(JSON, nullable=True)
-    starships: Mapped[list] = mapped_column(JSON, nullable=True)
-    vehicles: Mapped[list] = mapped_column(JSON, nullable=True)
+    species: Mapped[str] = mapped_column(String(), nullable=True)
+    starships: Mapped[str] = mapped_column(String(), nullable=True)
+    vehicles: Mapped[str] = mapped_column(String(), nullable=True)
 
 
 async def init_db():
     async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.drop_all)
         await conn.run_sync(Base.metadata.create_all)
