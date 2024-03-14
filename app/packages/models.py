@@ -1,11 +1,11 @@
 import os
 
-from sqlalchemy import String, JSON
+from sqlalchemy import String
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncAttrs
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 POSTGRES_USER = os.getenv("POSTGRES_USER", "postgres")
-POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "753951")
+POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "12345")
 POSTGRES_DB = os.getenv("POSTGRES_DB", "persons_swapi")
 POSTGRES_HOST = os.getenv("POSTGRES_HOST", "localhost")
 POSTGRES_PORT = os.getenv("POSTGRES_PORT", "5431")

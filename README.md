@@ -2,5 +2,5 @@
 
 ### Запуск db:
 ```bash
-docker-compose up db -d
+docker-compose --env-file .env_example up db -d
 ```
